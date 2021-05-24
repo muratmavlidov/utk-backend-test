@@ -38,7 +38,7 @@ const Form = () => {
     };
 
     if (checked && !apiUrl) {
-      alert('Введите apiUrl');
+      return alert('Введите apiUrl');
     }
 
     setLoading(true);
