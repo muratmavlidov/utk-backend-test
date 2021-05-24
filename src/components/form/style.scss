@@ -20,3 +20,56 @@
 .b-form__apiField {
   margin-top: 20px;
 }
+
+.b-form__fileBlock {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+
+  label {
+    font-size: 50px;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #e2e2e2;
+    line-height: 63px;
+    color: #0db14b;
+    cursor: pointer;
+  }
+}
+
+.b-form__fileBlock--image {
+  position: relative;
+  cursor: pointer;
+
+  &:hover {
+    span {
+      opacity: 1;
+    }
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  span {
+    position: absolute;
+    background: rgba(0, 0, 0, .5);
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    color: #fff;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity .3s ease;
+  }
+}
