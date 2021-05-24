@@ -65,7 +65,7 @@ const Form = () => {
     return error;
   }
 
-  const imageUpload = (image: string) => {
+  const imageUpload = (image: any) => {
     setFormData({ ...formData, image });
   }
 
@@ -84,8 +84,10 @@ const Form = () => {
           return function () {
             const formData = new FormData();
             formData.set('image', theFile);
+            setLoading(true);
             sendImage(formData, apiUrl)
               .then(imageUpload)
+              .finally(() => setLoading(false))
           };
         })(f);
         reader.readAsDataURL(f);
@@ -106,7 +108,7 @@ const Form = () => {
 
         {!formData.image && (
           <div className="b-form__fileBlock">
-            <input type="file" id="actual-btn" hidden onChange={onUploadFile} />
+            <input type="file" id="actual-btn" hidden onChange={onUploadFile} disabled={loading} />
             <label htmlFor="actual-btn">+</label>
           </div>
         )}
